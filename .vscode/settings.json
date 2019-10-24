@@ -1,0 +1,5 @@
+{
+    "sass.disableAutoIndent": true,
+    "editor.renderIndentGuides": false,
+    "editor.renderWhitespace": "none"
+}
