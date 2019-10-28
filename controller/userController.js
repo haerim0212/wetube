@@ -1,10 +1,22 @@
+import routes from "../routes";
+
 export const getJoin = (req, res) => {
   res.render("join", { pageTitle: "Join" });
 };
 
 export const postJoin = (req, res) => {
-  console.log(req.body);
-  res.render("join", { pageTitle: "Join" });
+  const {
+    body: { name, email, password, password2 }
+  } = req;
+  if(password !== password2){
+    //400 = 잘못된 요청
+    res.status(400);
+    res.render("join", { pageTitle: "Join" });
+  } else{
+    // To Do : Register User (사용자 등록)
+    // To Do : Log user in (사용자 로그인)
+    res.redirect(routes.home);
+  }
 };
 
 
