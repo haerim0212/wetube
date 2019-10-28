@@ -1,17 +1,20 @@
 import express from "express";
 import routes from "../routes";
 import { 
-    videos, 
-    upload, 
     videoDetail, 
     editVideo, 
-    deleteVideo } from "../controller/videoController";
+    deleteVideo, 
+    postUpload,
+    getUpload
+} from "../controller/videoController";
 
 const videoRouter = express.Router();
 
 // videoRouter.get(routes.videos, videos);
-videoRouter.get(routes.upload, upload);
-videoRouter.get(routes.videoDetail, videoDetail);
+videoRouter.get(routes.upload, getUpload);
+videoRouter.post(routes.upload, postUpload)
+//함수는 ()로 실행시켜줘야 한다. 안그럼 404 에러가 뜸.
+videoRouter.get(routes.videoDetail(), videoDetail);
 videoRouter.get(routes.editVideo, editVideo);
 videoRouter.get(routes.deleteVideo, deleteVideo);
 
